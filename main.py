@@ -46,7 +46,7 @@ def valid_name(name):
 if __name__ == '__main__':
     # call perl function for create file and folder when switch_perl = True
     switch_perl = False
-
+    file = [".html", ".css", ".js"]
     lien = "https://www.freecodecamp.org/learn/responsive-web-design/"
     Web_browser = webdriver.Chrome(executable_path="C:\selenium browser drivers\chromedriver.exe")
     Web_browser.get(lien)
@@ -82,9 +82,12 @@ if __name__ == '__main__':
         print(len(Titre[i][1]))
 
     # generate a json
-    #with open('data.json', 'w') as outfile:
-    #    json.dump(Titre, outfile)
-    file = [".hmtl",".css",".js"]
+    with open('data.json', 'w') as outfile:
+        json.dump(Titre, outfile)
+
+
+
+
     temp_titre = Titre[len(Titre)-1][0]
     if(switch_perl==True):
         create_folder_perl(temp_titre)
